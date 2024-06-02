@@ -101,17 +101,6 @@ public class TrainingServiceImpl implements TrainingProvider {
     }
 
     /**
-     * Updates the activity type of a specific training.
-     *
-     * @param id The ID of the training to be updated.
-     * @param newActivityType The new activity type.
-     */
-    public void updateActivity(long id, ActivityType newActivityType) {
-        Training training = trainingRepository.getReferenceById(id);
-        training.setActivityType(newActivityType);
-    }
-
-    /**
      * Deletes all trainings for a specific user.
      *
      * @param userId The ID of the user whose trainings will be deleted.
