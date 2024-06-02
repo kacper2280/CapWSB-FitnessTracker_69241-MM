@@ -2,11 +2,10 @@ package com.capgemini.wsb.fitnesstracker.user.api;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
 import lombok.ToString;
-
+import lombok.Getter;
 import java.time.LocalDate;
 
 @Entity
@@ -33,6 +32,10 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    public void setName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public User(
             final String firstName,
             final String lastName,
@@ -45,5 +48,17 @@ public class User {
         this.email = email;
     }
 
-}
+    public User(
+            Long id,
+            String firstName,
+            String lastName,
+            LocalDate birthdate,
+            String email) {
 
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.email = email;
+    }
+}

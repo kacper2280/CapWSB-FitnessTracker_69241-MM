@@ -16,6 +16,12 @@ import java.util.Date;
 @ToString
 public class Training {
 
+    @Column(name = "distance")
+    private double distance;
+
+    @Column(name = "average_speed")
+    private double averageSpeed;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,12 +40,6 @@ public class Training {
     @Column(name = "activity_type", nullable = false)
     private ActivityType activityType;
 
-    @Column(name = "distance")
-    private double distance;
-
-    @Column(name = "average_speed")
-    private double averageSpeed;
-
     public Training(
             final User user,
             final Date startTime,
@@ -55,4 +55,22 @@ public class Training {
         this.averageSpeed = averageSpeed;
     }
 
+    public Training(
+            final Long id,
+            final User user,
+            final Date startTime,
+            final Date endTime,
+            final ActivityType activityType,
+            final double distance,
+            final double averageSpeed) {
+        this.id = id;
+        this.user = user;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.activityType = activityType;
+        this.distance = distance;
+        this.averageSpeed = averageSpeed;
+    }
 }
+
+
